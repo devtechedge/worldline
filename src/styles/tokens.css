@@ -1,0 +1,68 @@
+/*
+ * Worldline design tokens.
+ * Art direction: a printed atlas on a porcelain desk. Warm paper, deep
+ * evergreen ink, electric cobalt reserved for selection, chartreuse for
+ * positive signals, vermilion for caution.
+ */
+:root {
+  /* Surfaces */
+  --porcelain: #f6f3ea;
+  --porcelain-raised: #fcfaf4;
+  --porcelain-deep: #ebe6d8;
+  --land: #e7dfca;
+  --ocean: #f1eee3;
+
+  /* Ink scale (deep evergreen-ink) */
+  --ink: #1c2f2a;
+  --ink-2: #3f4f49;
+  --ink-3: #57685f;
+
+  /* Rules */
+  --line: rgba(28, 47, 42, 0.14);
+  --line-strong: rgba(28, 47, 42, 0.32);
+
+  /* Signals */
+  --cobalt: #2952e0;
+  --cobalt-deep: #1d3fb8;
+  --cobalt-tint: rgba(41, 82, 224, 0.08);
+  --chartreuse: #55731a;
+  --chartreuse-tint: rgba(122, 154, 42, 0.14);
+  --vermilion: #b03a1c;
+  --vermilion-tint: rgba(176, 58, 28, 0.1);
+
+  /* Type */
+  --font-display: 'Newsreader Variable', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --font-ui: 'Archivo Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-numeric: ui-monospace, 'Cascadia Mono', 'SF Mono', Consolas, monospace;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* Shape */
+  --radius-1: 3px;
+  --radius-2: 6px;
+  --radius-3: 12px;
+  --radius-pill: 999px;
+
+  /* Elevation */
+  --shadow-1: 0 1px 2px rgba(28, 47, 42, 0.1), 0 0 0 1px var(--line);
+  --shadow-2: 0 2px 6px rgba(28, 47, 42, 0.08), 0 16px 44px -16px rgba(28, 47, 42, 0.28);
+  --shadow-3: 0 24px 70px -24px rgba(28, 47, 42, 0.4);
+
+  /* Motion */
+  --dur-1: 120ms;
+  --dur-2: 200ms;
+  --dur-3: 340ms;
+  --ease: cubic-bezier(0.2, 0.7, 0.3, 1);
+
+  /* Layout */
+  --rail-width: 304px;
+  --masthead-h: 96px;
+}
