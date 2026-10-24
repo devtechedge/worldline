@@ -4,6 +4,12 @@
 
 Worldline is a browser-based observatory: explore a world map, inspect places and the infrastructure linked to them, compare indicators across 2026 / 2035 / 2050, and read how three disclosed scenarios change the picture. It runs entirely client-side on bundled, deterministic, clearly-labelled illustrative data: no account, no API keys, no network calls at runtime.
 
+**Live:** https://worldline-zeta.vercel.app
+
+| Atlas | Place drawer | Field note |
+| --- | --- | --- |
+| ![The Worldline atlas](docs/screenshots/atlas.png) | ![Place drawer for Cairo](docs/screenshots/place-drawer.png) | ![Field note scatter](docs/screenshots/field-note.png) |
+
 ![Edition](public/favicon.svg)
 
 ## Quick start
