@@ -3,6 +3,7 @@
 An interactive, editorial-grade atlas of the systems shaping modern life: energy, water, mobility, climate and connectivity, on one map.
 
 ![Live Demo](https://img.shields.io/badge/live-worldline--zeta.vercel.app-2952e0)
+![CI](https://github.com/devtechedge/worldline/actions/workflows/ci.yml/badge.svg)
 ![License](https://img.shields.io/badge/license-MIT-1c2f2a)
 ![Stack](https://img.shields.io/badge/React_18-TypeScript_Vite-1c2f2a)
 
