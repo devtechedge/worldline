@@ -29,6 +29,8 @@ export interface AppState extends UrlState {
   focusRequest: { id: string; nonce: number } | null;
   /** Whether the compare panel is showing. */
   compareOpen: boolean;
+  /** UI theme; the map and every pane consume it through CSS tokens. */
+  theme: 'light' | 'dark';
 }
 
 export type View = UrlState['view'];
@@ -49,6 +51,7 @@ export type Action =
   | { type: 'setMethodologyOpen'; open: boolean }
   | { type: 'setFieldNoteOpen'; open: boolean }
   | { type: 'setCompareOpen'; open: boolean }
+  | { type: 'setTheme'; theme: 'light' | 'dark' }
   | { type: 'dismissIntro' }
   | { type: 'resetView' }
   | { type: 'restore'; state: UrlState }
@@ -134,6 +137,10 @@ export function reducer(state: AppState, action: Action): AppState {
     case 'setCompareOpen':
       if (action.open === state.compareOpen) return state;
       return { ...state, compareOpen: action.open };
+    case 'setTheme':
+      if (action.theme !== 'light' && action.theme !== 'dark') return state;
+      if (action.theme === state.theme) return state;
+      return { ...state, theme: action.theme };
     case 'dismissIntro':
       if (state.introDismissed) return state;
       return { ...state, introDismissed: true };
@@ -188,6 +195,7 @@ function initialState(): AppState {
     mapResetCount: 0,
     focusRequest: null,
     compareOpen: false,
+    theme: prefs.theme ?? 'light',
   };
 }
 
@@ -204,8 +212,14 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       scenario: state.scenario,
       bookmarks: state.bookmarks,
       introDismissed: state.introDismissed,
+      theme: state.theme,
     });
-  }, [state.layer, state.horizon, state.scenario, state.bookmarks, state.introDismissed]);
+  }, [state.layer, state.horizon, state.scenario, state.bookmarks, state.introDismissed, state.theme]);
+
+  // Keep the document attribute in step with the stored theme.
+  useEffect(() => {
+    document.documentElement.dataset.theme = state.theme;
+  }, [state.theme]);
 
   // Reflect selection, view and compare into the URL with a history entry.
   useEffect(() => {

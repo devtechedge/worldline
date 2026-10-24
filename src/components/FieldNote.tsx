@@ -68,7 +68,7 @@ export function FieldNote() {
 
         <figure className="chart-figure squeeze-chart">
           <figcaption>
-            <span className="chart-kicker" style={{ color: LAYER_BY_ID.water.hueInk }}>
+            <span className="chart-kicker" style={{ color: 'var(--layer-water-ink)' }}>
               Water stress against extreme heat
             </span>
             <span className="chart-sub">

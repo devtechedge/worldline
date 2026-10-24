@@ -203,6 +203,16 @@ test.describe('atlas core journeys (desktop)', () => {
     await expect(page.getByRole('dialog', { name: /Cairo: place profile/ })).toBeHidden();
   });
 
+  test('theme toggle switches, persists and restores before paint', async ({ page }) => {
+    await page.goto('/');
+    await page.getByRole('button', { name: 'Switch to dark mode' }).click();
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+    await page.reload();
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+    await page.getByRole('button', { name: 'Switch to light mode' }).click();
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
+  });
+
   test('drawer indicator table covers all five layers with the missing-data state', async ({ page }) => {
     await page.goto('/?p=suez');
     const dialog = page.getByRole('dialog', { name: /Suez Canal: place profile/ });

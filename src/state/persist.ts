@@ -16,6 +16,7 @@ export interface Prefs {
   scenario?: ScenarioId;
   bookmarks?: string[];
   introDismissed?: boolean;
+  theme?: 'light' | 'dark';
 }
 
 export interface PrefsResult {
@@ -49,6 +50,7 @@ export function loadPrefs(): PrefsResult {
     if (isHorizon(obj.horizon)) prefs.horizon = obj.horizon;
     if (isScenario(obj.scenario)) prefs.scenario = obj.scenario;
     if (typeof obj.introDismissed === 'boolean') prefs.introDismissed = obj.introDismissed;
+    if (obj.theme === 'light' || obj.theme === 'dark') prefs.theme = obj.theme;
     if (Array.isArray(obj.bookmarks)) {
       prefs.bookmarks = obj.bookmarks.filter(
         (b): b is string => typeof b === 'string' && /^[a-z0-9-]{1,40}$/.test(b),

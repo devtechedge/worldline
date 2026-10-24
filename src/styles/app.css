@@ -103,6 +103,64 @@
   fill: none;
 }
 
+/* Theme toggle: rightmost masthead action, cross-faded icons. */
+.theme-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  background: var(--porcelain);
+  color: var(--ink-2);
+  transition: border-color var(--dur-1) var(--ease), color var(--dur-1) var(--ease);
+}
+
+.theme-toggle:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.theme-toggle svg {
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  fill: none;
+  stroke-linecap: round;
+  transition: opacity 300ms var(--ease), transform 300ms var(--ease), filter 300ms var(--ease);
+}
+
+.theme-toggle .icon-moon {
+  opacity: 1;
+  transform: none;
+}
+
+.theme-toggle .icon-sun {
+  opacity: 0;
+  transform: scale(0.25);
+  filter: blur(4px);
+}
+
+html[data-theme='dark'] .theme-toggle .icon-moon {
+  opacity: 0;
+  transform: scale(0.25);
+  filter: blur(4px);
+}
+
+html[data-theme='dark'] .theme-toggle .icon-sun {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+html[data-theme='dark'] .theme-toggle .icon-sun circle {
+  fill: currentColor;
+}
+
 /* ------------------------------------------------------------ Atlas grid */
 .atlas-main {
   display: grid;

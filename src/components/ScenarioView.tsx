@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import { LAYER_BY_ID } from '../data/layers';
 import {
   binLabelFor,
   displayValue,
@@ -21,7 +20,6 @@ import { DeltaChip } from './DeltaChip';
 export function ScenarioView() {
   const { state, dispatch } = useStore();
   const primary = primaryMetricFor(state.layer);
-  const layerDef = LAYER_BY_ID[state.layer];
 
   const rows = useMemo(() => {
     return SORTED_PLACES.filter((p) => p.kind === 'city' || p.kind === 'port')
@@ -84,7 +82,7 @@ export function ScenarioView() {
 
       <section className="scenario-changes">
         <h3>
-          What changes by {state.horizon} · <span style={{ color: layerDef.hueInk }}>{primary.label}</span>
+          What changes by {state.horizon} · <span style={{ color: `var(--layer-${state.layer}-ink)` }}>{primary.label}</span>
         </h3>
         <p className="scenario-note">
           Each row compares the selected scenario with Continued momentum for the same place,

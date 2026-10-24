@@ -1,5 +1,6 @@
 import { EDITION } from '../data/content';
 import { useStore } from '../state/store';
+import { ThemeToggle } from './ThemeToggle';
 
 export function Masthead() {
   const { state, dispatch } = useStore();
@@ -61,6 +62,7 @@ export function Masthead() {
             <kbd aria-hidden="true">Ctrl K</kbd>
             <span className="sr-only">, opens the command palette</span>
           </button>
+          <ThemeToggle />
         </div>
       </div>
     </header>

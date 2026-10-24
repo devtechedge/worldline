@@ -82,7 +82,7 @@ export function TrendChart({ place, metricId, scenario, horizon }: TrendChartPro
   return (
     <figure className="chart-figure">
       <figcaption>
-        <span className="chart-kicker" style={{ color: layerDef.hueInk }}>
+        <span className="chart-kicker" style={{ color: `var(--layer-${metric.layer}-ink)` }}>
           {metric.label}
         </span>
         <span className="chart-sub">

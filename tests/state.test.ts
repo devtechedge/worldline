@@ -17,6 +17,7 @@ function baseState(): AppState {
     mapResetCount: 0,
     focusRequest: null,
     compareOpen: false,
+    theme: 'light',
   };
 }
 
@@ -142,6 +143,13 @@ describe('reducer', () => {
     s = reducer(s, { type: 'requestFocus', id: 'oslo' });
     expect(s.focusRequest?.nonce).toBe(2);
   });
+
+  it('theme toggles and rejects junk values', () => {
+    const s = reducer(baseState(), { type: 'setTheme', theme: 'dark' });
+    expect(s.theme).toBe('dark');
+    expect(reducer(s, { type: 'setTheme', theme: 'dark' })).toBe(s);
+    expect(reducer(s, { type: 'setTheme', theme: 'midnight' as never })).toBe(s);
+  });
 });
 
 describe('persistence', () => {
@@ -150,12 +158,15 @@ describe('persistence', () => {
   });
 
   it('saves and loads valid prefs', () => {
-    expect(savePrefs({ layer: 'water', horizon: 2035, bookmarks: ['oslo', 'cairo'] })).toBe(true);
+    expect(
+      savePrefs({ layer: 'water', horizon: 2035, bookmarks: ['oslo', 'cairo'], theme: 'dark' }),
+    ).toBe(true);
     const { prefs, storageOk } = loadPrefs();
     expect(storageOk).toBe(true);
     expect(prefs.layer).toBe('water');
     expect(prefs.horizon).toBe(2035);
     expect(prefs.bookmarks).toEqual(['oslo', 'cairo']);
+    expect(prefs.theme).toBe('dark');
   });
 
   it('drops junk fields instead of trusting them', () => {

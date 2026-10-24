@@ -5,12 +5,17 @@
  * positive signals, vermilion for caution.
  */
 :root {
+  color-scheme: light;
+
   /* Surfaces */
   --porcelain: #f6f3ea;
   --porcelain-raised: #fcfaf4;
   --porcelain-deep: #ebe6d8;
   --land: #e7dfca;
   --ocean: #f1eee3;
+  --label-halo: rgba(246, 243, 234, 0.88);
+  --scroll-thumb: rgba(28, 47, 42, 0.24);
+  --scroll-thumb-hover: rgba(28, 47, 42, 0.45);
 
   /* Ink scale (deep evergreen-ink) */
   --ink: #1c2f2a;
@@ -65,4 +70,50 @@
   /* Layout */
   --rail-width: 304px;
   --masthead-h: 96px;
+
+  /* Layer identity hues as text: theme-overridable via these aliases. */
+  --layer-energy-ink: #7c4708;
+  --layer-water-ink: #0f5f6d;
+  --layer-mobility-ink: #4d3d92;
+  --layer-climate-ink: #8f3a18;
+  --layer-connectivity-ink: #7d3560;
+}
+
+/* Night atlas: cool slate, warm-light ink, same layer hues. */
+html[data-theme='dark'] {
+  color-scheme: dark;
+
+  --porcelain: #151a1e;
+  --porcelain-raised: #1b2126;
+  --porcelain-deep: #232b31;
+  --land: #272f34;
+  --ocean: #101519;
+  --label-halo: rgba(21, 26, 30, 0.9);
+  --scroll-thumb: rgba(232, 230, 223, 0.22);
+  --scroll-thumb-hover: rgba(232, 230, 223, 0.45);
+
+  --ink: #e8e6df;
+  --ink-2: #b4bab4;
+  --ink-3: #8d948e;
+
+  --line: rgba(232, 230, 223, 0.14);
+  --line-strong: rgba(232, 230, 223, 0.32);
+
+  --cobalt: #7c96f2;
+  --cobalt-deep: #97abf5;
+  --cobalt-tint: rgba(124, 150, 242, 0.14);
+  --chartreuse: #a9c457;
+  --chartreuse-tint: rgba(169, 196, 87, 0.16);
+  --vermilion: #e0856a;
+  --vermilion-tint: rgba(224, 133, 106, 0.14);
+
+  --layer-energy-ink: #e2b06a;
+  --layer-water-ink: #7cc3cd;
+  --layer-mobility-ink: #b3a5e6;
+  --layer-climate-ink: #e29678;
+  --layer-connectivity-ink: #d493b8;
+
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--line);
+  --shadow-2: 0 2px 6px rgba(0, 0, 0, 0.35), 0 16px 44px -16px rgba(0, 0, 0, 0.55);
+  --shadow-3: 0 24px 70px -24px rgba(0, 0, 0, 0.7);
 }

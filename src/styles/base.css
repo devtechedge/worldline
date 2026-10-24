@@ -141,3 +141,93 @@ kbd {
     scroll-behavior: auto !important;
   }
 }
+
+/*
+ * Overlay hover-reveal scrollbars: every inner scrolling pane shows a thin
+ * thumb only while the pointer (or keyboard focus) is on that pane. Native
+ * overlay behaviour is left alone on touch. html/body are excluded on
+ * purpose: the cursor is always over the page, so the document bar would
+ * become permanently visible.
+ */
+.rail,
+.dialog-body,
+.palette-list,
+.chart-data,
+.map-caption,
+.search-results,
+.scenario-table,
+.compare-table,
+.metric-table,
+.drawer-context,
+pre {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.rail:hover,
+.rail:focus-within,
+.dialog-body:hover,
+.dialog-body:focus-within,
+.palette-list:hover,
+.palette-list:focus-within,
+.chart-data:hover,
+.search-results:hover,
+.scenario-table:hover,
+.compare-table:hover,
+.metric-table:hover,
+pre:hover {
+  scrollbar-color: var(--scroll-thumb) transparent;
+}
+
+.rail::-webkit-scrollbar,
+.dialog-body::-webkit-scrollbar,
+.palette-list::-webkit-scrollbar,
+.chart-data::-webkit-scrollbar,
+.search-results::-webkit-scrollbar,
+.scenario-table::-webkit-scrollbar,
+.compare-table::-webkit-scrollbar,
+.metric-table::-webkit-scrollbar,
+pre::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: transparent;
+}
+
+.rail::-webkit-scrollbar-thumb,
+.dialog-body::-webkit-scrollbar-thumb,
+.palette-list::-webkit-scrollbar-thumb,
+.chart-data::-webkit-scrollbar-thumb,
+.search-results::-webkit-scrollbar-thumb,
+.scenario-table::-webkit-scrollbar-thumb,
+.compare-table::-webkit-scrollbar-thumb,
+.metric-table::-webkit-scrollbar-thumb,
+pre::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: transparent;
+}
+
+.rail:hover::-webkit-scrollbar-thumb,
+.rail:focus-within::-webkit-scrollbar-thumb,
+.dialog-body:hover::-webkit-scrollbar-thumb,
+.dialog-body:focus-within::-webkit-scrollbar-thumb,
+.palette-list:hover::-webkit-scrollbar-thumb,
+.palette-list:focus-within::-webkit-scrollbar-thumb,
+.chart-data:hover::-webkit-scrollbar-thumb,
+.search-results:hover::-webkit-scrollbar-thumb,
+.scenario-table:hover::-webkit-scrollbar-thumb,
+.compare-table:hover::-webkit-scrollbar-thumb,
+.metric-table:hover::-webkit-scrollbar-thumb,
+pre:hover::-webkit-scrollbar-thumb {
+  background: var(--scroll-thumb);
+}
+
+.rail:hover::-webkit-scrollbar-thumb:hover,
+.dialog-body:hover::-webkit-scrollbar-thumb:hover,
+.palette-list:hover::-webkit-scrollbar-thumb:hover,
+.dialog-body:focus-within::-webkit-scrollbar-thumb {
+  background: var(--scroll-thumb-hover);
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
